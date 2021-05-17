@@ -65,3 +65,4 @@ vcpkg/
 build/*.dir/*
 build/Debug/*
 build/x64/*
+*.exp
