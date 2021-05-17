@@ -59,3 +59,9 @@ uselib
 uselib_track
 darknet
 vcpkg/
+
+*.tlog
+*.vcxproj.filters
+build/*.dir/*
+build/Debug/*
+build/x64/*
