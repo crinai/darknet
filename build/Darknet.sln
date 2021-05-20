@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.31229.75
-MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ALL_BUILD", "ALL_BUILD.vcxproj", "{C0493C7C-2492-3EC7-BEDD-F8893A57EBA3}"
 	ProjectSection(ProjectDependencies) = postProject
 		{249CC626-E48F-3855-82CD-D4B8D7436810} = {249CC626-E48F-3855-82CD-D4B8D7436810}
@@ -18,6 +16,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "INSTALL", "INSTALL.vcxproj"
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ZERO_CHECK", "ZERO_CHECK.vcxproj", "{249CC626-E48F-3855-82CD-D4B8D7436810}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dark", "dark.vcxproj", "{B64F08C2-5BF5-3E5B-A70B-047DD2B7EE1A}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -64,10 +64,9 @@ Global
 		{AC7621F7-BC25-3E66-B8D7-2D13274864CE}.Release|x64.ActiveCfg = Release|x64
 		{AC7621F7-BC25-3E66-B8D7-2D13274864CE}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4FCF8048-FF40-3C27-9596-5A87E2DE0673}
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
 	EndGlobalSection
 EndGlobal

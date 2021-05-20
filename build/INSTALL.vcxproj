@@ -56,8 +56,7 @@
     </Midl>
     <PostBuildEvent>
       <StdOutEncoding>UTF-8</StdOutEncoding>
-      <Message>
-      </Message>
+      <Message></Message>
       <Command>setlocal
 "C:\Program Files\CMake\bin\cmake.exe" -DBUILD_TYPE=$(Configuration) -P cmake_install.cmake
 if %errorlevel% neq 0 goto :cmEnd
@@ -80,8 +79,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </Midl>
     <PostBuildEvent>
       <StdOutEncoding>UTF-8</StdOutEncoding>
-      <Message>
-      </Message>
+      <Message></Message>
       <Command>setlocal
 "C:\Program Files\CMake\bin\cmake.exe" -DBUILD_TYPE=$(Configuration) -P cmake_install.cmake
 if %errorlevel% neq 0 goto :cmEnd
@@ -95,8 +93,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemGroup>
     <CustomBuild Include="D:\workspace\vs_projects\darknet_AlexeyAB\build\CMakeFiles\8ef114a93864b08a7adab21f6ea44c49\INSTALL_force.rule">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"> </Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
 cd .
 if %errorlevel% neq 0 goto :cmEnd
@@ -110,8 +107,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\workspace\vs_projects\darknet_AlexeyAB\build\CMakeFiles\INSTALL_force</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'"> </Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
 cd .
 if %errorlevel% neq 0 goto :cmEnd

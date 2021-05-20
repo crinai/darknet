@@ -42,14 +42,14 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)$(Configuration)</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">uselib.dir\$(Configuration)</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">uselib.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">uselib</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)$(Configuration)</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">uselib.dir\$(Configuration)</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">uselib.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">uselib</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
@@ -57,7 +57,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)../../common/include/opencv4;$(SolutionDir)../include;$(SolutionDir)../src;$(SolutionDir)../3rdparty\stb\include;$(SolutionDir)../3rdparty\pthreads\include;$(CudaToolkitIncludeDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)../include;$(SolutionDir)../src;$(SolutionDir)../3rdparty\stb\include;$(CUDA_PATH)\include;$(OPENCV_DIR)include;$(SolutionDir)../3rdparty\pthreads\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -73,15 +73,15 @@
       <SuppressStartupBanner>
       </SuppressStartupBanner>
       <UseFullPaths>false</UseFullPaths>
-      <PreprocessorDefinitions>OPENCV;WIN32;_WINDOWS;USE_CMAKE_LIBS;_CRT_RAND_S;NOMINMAX;_USE_MATH_DEFINES;CUDNN;_CRT_SECURE_NO_WARNINGS;GPU;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;USE_CMAKE_LIBS;_CRT_RAND_S;NOMINMAX;_USE_MATH_DEFINES;CUDNN;OPENCV;_CRT_SECURE_NO_WARNINGS;GPU;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;USE_CMAKE_LIBS;_CRT_RAND_S;NOMINMAX;_USE_MATH_DEFINES;CUDNN;_CRT_SECURE_NO_WARNINGS;GPU;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\workspace\vs_projects\darknet_AlexeyAB\include;D:\workspace\vs_projects\darknet_AlexeyAB\src;D:\workspace\vs_projects\darknet_AlexeyAB\3rdparty\stb\include;D:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.1\include;D:\workspace\vs_projects\darknet_AlexeyAB\3rdparty\pthreads\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;USE_CMAKE_LIBS;_CRT_RAND_S;NOMINMAX;_USE_MATH_DEFINES;CUDNN;OPENCV;_CRT_SECURE_NO_WARNINGS;GPU;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)../include;$(SolutionDir)../src;$(SolutionDir)../3rdparty\stb\include;$(CUDA_PATH)\include;$(OPENCV_DIR)include;$(SolutionDir)../3rdparty\pthreads\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\workspace\vs_projects\darknet_AlexeyAB\include;D:\workspace\vs_projects\darknet_AlexeyAB\src;D:\workspace\vs_projects\darknet_AlexeyAB\3rdparty\stb\include;D:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.1\include;D:\workspace\vs_projects\darknet_AlexeyAB\3rdparty\pthreads\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)../include;$(SolutionDir)../src;$(SolutionDir)../3rdparty\stb\include;$(CUDA_PATH)\include;$(OPENCV_DIR)include;$(SolutionDir)../3rdparty\pthreads\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -89,13 +89,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>$(SolutionDir)../../common/lib/opencv4/MDD/lib/opencv_world420d.lib;Debug\darknetd.lib;..\3rdparty\pthreads\lib\pthreadVC2.lib;wsock32.lib;ws2_32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>Debug\darknetd.lib;..\3rdparty\pthreads\lib\pthreadVC2.lib;$(OPENCV_DIR)lib\opencv_gapi452d.lib;$(OPENCV_DIR)lib\opencv_highgui452d.lib;$(OPENCV_DIR)lib\opencv_ml452d.lib;$(OPENCV_DIR)lib\opencv_objdetect452d.lib;$(OPENCV_DIR)lib\opencv_photo452d.lib;$(OPENCV_DIR)lib\opencv_stitching452d.lib;$(OPENCV_DIR)lib\opencv_video452d.lib;$(OPENCV_DIR)lib\opencv_calib3d452d.lib;$(OPENCV_DIR)lib\opencv_dnn452d.lib;$(OPENCV_DIR)lib\opencv_features2d452d.lib;$(OPENCV_DIR)lib\opencv_flann452d.lib;$(OPENCV_DIR)lib\opencv_videoio452d.lib;$(OPENCV_DIR)lib\opencv_imgcodecs452d.lib;$(OPENCV_DIR)lib\opencv_imgproc452d.lib;$(OPENCV_DIR)lib\opencv_core452d.lib;wsock32.lib;ws2_32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/workspace/vs_projects/darknet_AlexeyAB/build/Debug/uselib.lib</ImportLibrary>
-      <ProgramDataBaseFile>D:/workspace/vs_projects/darknet_AlexeyAB/build/Debug/uselib.pdb</ProgramDataBaseFile>
+      <ImportLibrary>Debug/uselib.lib</ImportLibrary>
+      <ProgramDataBaseFile>Debug/uselib.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -108,7 +108,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)../../common/include/opencv4;$(SolutionDir)../include;$(SolutionDir)../src;$(SolutionDir)../3rdparty\stb\include;$(SolutionDir)../3rdparty\pthreads\include;$(CudaToolkitIncludeDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)../include;$(SolutionDir)../src;$(SolutionDir)../3rdparty\stb\include;$(CUDA_PATH)\include;$(OPENCV_DIR)include;$(SolutionDir)../3rdparty\pthreads\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DisableSpecificWarnings>4013;4018;4028;4047;4068;4090;4101;4113;4133;4190;4244;4267;4305;4477;4996;4819</DisableSpecificWarnings>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -122,17 +122,17 @@
       <SuppressStartupBanner>
       </SuppressStartupBanner>
       <UseFullPaths>false</UseFullPaths>
-      <PreprocessorDefinitions>OPENCV;WIN32;_WINDOWS;NDEBUG;USE_CMAKE_LIBS;_CRT_RAND_S;NOMINMAX;_USE_MATH_DEFINES;CUDNN;_CRT_SECURE_NO_WARNINGS;GPU;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;USE_CMAKE_LIBS;_CRT_RAND_S;NOMINMAX;_USE_MATH_DEFINES;CUDNN;OPENCV;_CRT_SECURE_NO_WARNINGS;GPU;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat>
       </DebugInformationFormat>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;USE_CMAKE_LIBS;_CRT_RAND_S;NOMINMAX;_USE_MATH_DEFINES;CUDNN;_CRT_SECURE_NO_WARNINGS;GPU;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\workspace\vs_projects\darknet_AlexeyAB\include;D:\workspace\vs_projects\darknet_AlexeyAB\src;D:\workspace\vs_projects\darknet_AlexeyAB\3rdparty\stb\include;D:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.1\include;D:\workspace\vs_projects\darknet_AlexeyAB\3rdparty\pthreads\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;USE_CMAKE_LIBS;_CRT_RAND_S;NOMINMAX;_USE_MATH_DEFINES;CUDNN;OPENCV;_CRT_SECURE_NO_WARNINGS;GPU;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)../include;$(SolutionDir)../src;$(SolutionDir)../3rdparty\stb\include;$(CUDA_PATH)\include;$(OPENCV_DIR)include;$(SolutionDir)../3rdparty\pthreads\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\workspace\vs_projects\darknet_AlexeyAB\include;D:\workspace\vs_projects\darknet_AlexeyAB\src;D:\workspace\vs_projects\darknet_AlexeyAB\3rdparty\stb\include;D:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.1\include;D:\workspace\vs_projects\darknet_AlexeyAB\3rdparty\pthreads\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)../include;$(SolutionDir)../src;$(SolutionDir)../3rdparty\stb\include;$(CUDA_PATH)\include;$(OPENCV_DIR)include;$(SolutionDir)../3rdparty\pthreads\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -140,13 +140,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>$(SolutionDir)../../common/lib/opencv4/MD/lib/opencv_world420.lib;Release\darknet.lib;..\3rdparty\pthreads\lib\pthreadVC2.lib;wsock32.lib;ws2_32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>Release\darknet.lib;$(OPENCV_DIR)lib\opencv_gapi452.lib;$(OPENCV_DIR)lib\opencv_highgui452.lib;$(OPENCV_DIR)lib\opencv_ml452.lib;$(OPENCV_DIR)lib\opencv_objdetect452.lib;$(OPENCV_DIR)lib\opencv_photo452.lib;$(OPENCV_DIR)lib\opencv_stitching452.lib;$(OPENCV_DIR)lib\opencv_video452.lib;$(OPENCV_DIR)lib\opencv_calib3d452.lib;$(OPENCV_DIR)lib\opencv_dnn452.lib;$(OPENCV_DIR)lib\opencv_features2d452.lib;$(OPENCV_DIR)lib\opencv_flann452.lib;$(OPENCV_DIR)lib\opencv_videoio452.lib;$(OPENCV_DIR)lib\opencv_imgcodecs452.lib;$(OPENCV_DIR)lib\opencv_imgproc452.lib;$(OPENCV_DIR)lib\opencv_core452.lib;..\3rdparty\pthreads\lib\pthreadVC2.lib;wsock32.lib;ws2_32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/workspace/vs_projects/darknet_AlexeyAB/build/Release/uselib.lib</ImportLibrary>
-      <ProgramDataBaseFile>D:/workspace/vs_projects/darknet_AlexeyAB/build/Release/uselib.pdb</ProgramDataBaseFile>
+      <ImportLibrary>Release/uselib.lib</ImportLibrary>
+      <ProgramDataBaseFile>Release/uselib.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -158,11 +158,11 @@
     </CudaLink>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="D:\workspace\vs_projects\darknet_AlexeyAB\CMakeLists.txt">
+    <CustomBuild Include="$(SolutionDir)../CMakeLists.txt">
       <StdOutEncoding>UTF-8</StdOutEncoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/workspace/vs_projects/darknet_AlexeyAB/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule $(SolutionDir)..//CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SD:/workspace/vs_projects/darknet_AlexeyAB -BD:/workspace/vs_projects/darknet_AlexeyAB/build --check-stamp-file D:/workspace/vs_projects/darknet_AlexeyAB/build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -S$(SolutionDir)../ -B$(SolutionDir) --check-stamp-file CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -170,12 +170,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.20\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeCUDAInformation.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeParseImplicitLinkInfo.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CheckLanguage.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Compiler\NVIDIA-CUDA.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\FindOpenMP.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\FindThreads.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Platform\Windows-NVIDIA-CUDA.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\SelectLibraryConfigurations.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\WriteBasicConfigVersionFile.cmake;D:\workspace\vs_projects\darknet_AlexeyAB\DarknetConfig.cmake.in;D:\workspace\vs_projects\darknet_AlexeyAB\build\CMakeFiles\3.20.2\CMakeCCompiler.cmake;D:\workspace\vs_projects\darknet_AlexeyAB\build\CMakeFiles\3.20.2\CMakeCUDACompiler.cmake;D:\workspace\vs_projects\darknet_AlexeyAB\build\CMakeFiles\3.20.2\CMakeCXXCompiler.cmake;D:\workspace\vs_projects\darknet_AlexeyAB\build\CMakeFiles\3.20.2\CMakeRCCompiler.cmake;D:\workspace\vs_projects\darknet_AlexeyAB\build\CMakeFiles\3.20.2\CMakeSystem.cmake;D:\workspace\vs_projects\darknet_AlexeyAB\cmake\Modules\FindCUDNN.cmake;D:\workspace\vs_projects\darknet_AlexeyAB\cmake\Modules\FindPThreads_windows.cmake;D:\workspace\vs_projects\darknet_AlexeyAB\cmake\Modules\FindStb.cmake;D:\workspace\vs_projects\darknet_AlexeyAB\src\version.h.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\workspace\vs_projects\darknet_AlexeyAB\build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.20\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeCUDAInformation.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeParseImplicitLinkInfo.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CheckLanguage.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Compiler\NVIDIA-CUDA.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\FindOpenMP.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\FindThreads.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Platform\Windows-NVIDIA-CUDA.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\SelectLibraryConfigurations.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\WriteBasicConfigVersionFile.cmake;$(OPENCV_DIR)cmake\OpenCVConfig-version.cmake;$(OPENCV_DIR)cmake\OpenCVConfig.cmake;$(OPENCV_DIR)cmake\OpenCVModules-release.cmake;$(OPENCV_DIR)cmake\OpenCVModules.cmake;$(SolutionDir)../DarknetConfig.cmake.in;CMakeFiles\3.20.2\CMakeCCompiler.cmake;CMakeFiles\3.20.2\CMakeCUDACompiler.cmake;CMakeFiles\3.20.2\CMakeCXXCompiler.cmake;CMakeFiles\3.20.2\CMakeRCCompiler.cmake;CMakeFiles\3.20.2\CMakeSystem.cmake;$(SolutionDir)../cmake\Modules\FindCUDNN.cmake;$(SolutionDir)../cmake\Modules\FindPThreads_windows.cmake;$(SolutionDir)../cmake\Modules\FindStb.cmake;$(SolutionDir)../src\version.h.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/workspace/vs_projects/darknet_AlexeyAB/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule $(SolutionDir)..//CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SD:/workspace/vs_projects/darknet_AlexeyAB -BD:/workspace/vs_projects/darknet_AlexeyAB/build --check-stamp-file D:/workspace/vs_projects/darknet_AlexeyAB/build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -S$(SolutionDir)../ -B$(SolutionDir) --check-stamp-file CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -183,22 +183,22 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.20\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeCUDAInformation.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeParseImplicitLinkInfo.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CheckLanguage.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Compiler\NVIDIA-CUDA.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\FindOpenMP.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\FindThreads.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Platform\Windows-NVIDIA-CUDA.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\SelectLibraryConfigurations.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\WriteBasicConfigVersionFile.cmake;D:\workspace\vs_projects\darknet_AlexeyAB\DarknetConfig.cmake.in;D:\workspace\vs_projects\darknet_AlexeyAB\build\CMakeFiles\3.20.2\CMakeCCompiler.cmake;D:\workspace\vs_projects\darknet_AlexeyAB\build\CMakeFiles\3.20.2\CMakeCUDACompiler.cmake;D:\workspace\vs_projects\darknet_AlexeyAB\build\CMakeFiles\3.20.2\CMakeCXXCompiler.cmake;D:\workspace\vs_projects\darknet_AlexeyAB\build\CMakeFiles\3.20.2\CMakeRCCompiler.cmake;D:\workspace\vs_projects\darknet_AlexeyAB\build\CMakeFiles\3.20.2\CMakeSystem.cmake;D:\workspace\vs_projects\darknet_AlexeyAB\cmake\Modules\FindCUDNN.cmake;D:\workspace\vs_projects\darknet_AlexeyAB\cmake\Modules\FindPThreads_windows.cmake;D:\workspace\vs_projects\darknet_AlexeyAB\cmake\Modules\FindStb.cmake;D:\workspace\vs_projects\darknet_AlexeyAB\src\version.h.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\workspace\vs_projects\darknet_AlexeyAB\build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.20\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeCUDAInformation.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeParseImplicitLinkInfo.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CheckLanguage.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Compiler\NVIDIA-CUDA.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\FindOpenMP.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\FindThreads.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Platform\Windows-NVIDIA-CUDA.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\SelectLibraryConfigurations.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\WriteBasicConfigVersionFile.cmake;$(OPENCV_DIR)cmake\OpenCVConfig-version.cmake;$(OPENCV_DIR)cmake\OpenCVConfig.cmake;$(OPENCV_DIR)cmake\OpenCVModules-release.cmake;$(OPENCV_DIR)cmake\OpenCVModules.cmake;$(SolutionDir)../DarknetConfig.cmake.in;CMakeFiles\3.20.2\CMakeCCompiler.cmake;CMakeFiles\3.20.2\CMakeCUDACompiler.cmake;CMakeFiles\3.20.2\CMakeCXXCompiler.cmake;CMakeFiles\3.20.2\CMakeRCCompiler.cmake;CMakeFiles\3.20.2\CMakeSystem.cmake;$(SolutionDir)../cmake\Modules\FindCUDNN.cmake;$(SolutionDir)../cmake\Modules\FindPThreads_windows.cmake;$(SolutionDir)../cmake\Modules\FindStb.cmake;$(SolutionDir)../src\version.h.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="D:\workspace\vs_projects\darknet_AlexeyAB\src\yolo_console_dll.cpp" />
+    <ClCompile Include="$(SolutionDir)../src\yolo_console_dll.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="D:\workspace\vs_projects\darknet_AlexeyAB\build\ZERO_CHECK.vcxproj">
+    <ProjectReference Include="ZERO_CHECK.vcxproj">
       <Project>{249CC626-E48F-3855-82CD-D4B8D7436810}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="D:\workspace\vs_projects\darknet_AlexeyAB\build\dark.vcxproj">
+    <ProjectReference Include="dark.vcxproj">
       <Project>{B64F08C2-5BF5-3E5B-A70B-047DD2B7EE1A}</Project>
       <Name>dark</Name>
     </ProjectReference>
